@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Claim Tool – Link Generator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111827;
+            color: #f9fafb;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background: #1f2937;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 30px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #9ca3af;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .step {
+            margin-bottom: 24px;
+        }
+
+        .step-title {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px;
+            border-radius: 9px;
+            border: 1px solid #4b5563;
+            background: #111827;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: #34d399;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 9px;
+            background: #10b981;
+            color: #052e25;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #34d399;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #111827;
+            border: 1px solid #374151;
+            border-radius: 10px;
+            overflow-wrap: anywhere;
+        }
+
+        .result-title {
+            color: #34d399;
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        #newLink {
+            color: #93c5fd;
+            line-height: 1.6;
+        }
+
+        #newLink a {
+            color: #93c5fd;
+        }
+
+        .copy-button {
+            margin-top: 15px;
+            background: #374151;
+            color: white;
+        }
+
+        .copy-button:hover {
+            background: #4b5563;
+        }
+
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 23px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>♟ Chess Claim Tool</h1>
+
+        <p class="subtitle">
+            DGT LiveChess Link Generator<br>
+            Generate a link for a single round or all rounds.
+        </p>
+
+        <div class="step">
+            <label class="step-title" for="liveChessUrl">
+                1. Enter the DGT LiveChess URL
+            </label>
+
+            <input
+                type="text"
+                id="liveChessUrl"
+                placeholder="https://view.livechesscloud.com#..."
+            >
+        </div>
+
+        <div class="step">
+            <label class="step-title" for="round">
+                2. Select a round
+            </label>
+
+            <select id="round">
+                <option value="all">All rounds</option>
+                <option value="1">Round 1</option>
+                <option value="2">Round 2</option>
+                <option value="3">Round 3</option>
+                <option value="4">Round 4</option>
+                <option value="5">Round 5</option>
+                <option value="6">Round 6</option>
+                <option value="7">Round 7</option>
+                <option value="8">Round 8</option>
+                <option value="9">Round 9</option>
+                <option value="10">Round 10</option>
+                <option value="11">Round 11</option>
+                <option value="12">Round 12</option>
+                <option value="13">Round 13</option>
+                <option value="14">Round 14</option>
+                <option value="15">Round 15</option>
+            </select>
+        </div>
+
+        <button onclick="generateLink()">
+            Generate Link
+        </button>
+
+        <div class="result">
+            <p class="result-title">
+                Your Chess Claim Tool Link:
+            </p>
+
+            <p id="newLink"></p>
+
+            <button
+                class="copy-button"
+                onclick="copyLink()"
+            >
+                Copy Link
+            </button>
+        </div>
+
+        <p class="footer">
+            Chess Claim Tool · DGT LiveChess
+        </p>
+
+    </main>
+
+    <script src="kod.js"></script>
+
+</body>
+</html>
